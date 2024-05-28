@@ -59,10 +59,6 @@ main {
     0 0 12px color-mix(in srgb, var(--primary) 0%, var(--secondary));
 }
 
-p {
-
-}
-
 button {
   padding: 10px 15px;
   border-radius: 10px;
