@@ -1,7 +1,9 @@
 -da -> néon
--crée composants
--crée maquette
+-créer composants
+-créer maquette
 
 ---
 
-idée :
+idées :
+Plusieurs catégories qui se rempliront petit à petit:
+Jeux, outils, astuces/tutoriels...
