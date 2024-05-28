@@ -195,3 +195,89 @@ section:hover {
     0 0 4px var(--primary),
     0 0 6px color-mix(in srgb, var(--secondary), transparent 40%);
 }
+
+menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+menu li {
+  position: relative;
+}
+
+menu li a {
+  display: block;
+  padding: 15px;
+  text-decoration: none;
+  color: var(--front);
+}
+
+menu li ul {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  display: none;
+  background: 
+    linear-gradient(to right,
+      color-mix(in srgb, var(--back) 70%, var(--backMax)),
+      color-mix(in srgb, var(--back) 65%, var(--backMax))
+    ) padding-box,
+    linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+
+  border: solid 2px transparent;
+  background-origin: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+menu li:hover ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  color: transparent;
+  
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  
+  color: var(--front);
+  background-color: color-mix(in srgb, var(--back) 90%, var(--front));
+  outline: solid 1.5px color-mix(in srgb, var(--back) 80%, var(--front));
+  
+  font-size: 0.9rem;
+  
+  cursor: pointer;
+  transition: all 0.2s, scale 0.08s;
+}
+
+menu li ul li {
+  margin-bottom: 5px;
+}
+
+menu li ul li a {
+  color: var(--front);
+}
+
+menu li ul li a:hover {
+  outline: none;
+  
+  color: var(--front);
+  background: 
+    linear-gradient(to right,
+      color-mix(in srgb, var(--back) 70%, var(--backMax)),
+      color-mix(in srgb, var(--back) 65%, var(--backMax))
+    ) padding-box,
+    linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+
+  border: solid 2px transparent;
+  background-origin: border-box;
+  border-radius: 5px;
+  
+  box-shadow: 
+    0 0 4px var(--primary),
+    0 0 6px color-mix(in srgb, var(--secondary), transparent 40%);
+}
