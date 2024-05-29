@@ -8,10 +8,48 @@
 </head>
 <body>
     <header>
-        <div class="neon-text">
-            <h1>CN3S</h1>
+        <div class="navbar">
+            <div class="neon-text">
+                <h1>CN3S</h1>
+            </div>
+            <ul class="links">
+                <li><a href="#">lien1</a></li>
+                <li><a href="#">lien2</a></li>
+                <li><a href="#">lien3</a></li>
+                <li><a href="#">lien4</a></li>
+            </ul>
+            <div class="action-button">
+                <button href="#">chose1</button>
+                <button href="#">chose2</button>
+            </div>
+            <div class="burger-menu-button"><i>☰</i></div>
+        </div>
+        <div class="burger-menu">
+            <ul class="links">
+                <li><a href="#">lien1</a></li>
+                <li><a href="#">lien2</a></li>
+                <li><a href="#">lien3</a></li>
+                <li><a href="#">lien4</a></li>
+                <div class="divider"></div>
+                <div class="buttons-burger-menu">
+                    <button href="#">chose1</button>
+                    <button href="#">chose2</button>
+                </div>
+            </ul>
         </div>
     </header>
+    <script>
+        const burgerMenuButton = document.querySelector('.burger-menu-button')
+        const burgerMenuButtonIcon = document.querySelector('.burger-menu-button i')
+        const burgerMenu = document.querySelector('.burger-menu')
+
+        burgerMenuButton.onclick = function(){
+        burgerMenu.classList.toggle('open')
+        burgerMenu.classList.toggle('close')
+        const isOpen = burgerMenu.classList.contains('open')
+        burgerMenuButtonIcon.classList = isOpen ? 'X' : '☰'
+}
+    </script>
     <main>
         <div id="test bouton">
             <button>Bouton</button>

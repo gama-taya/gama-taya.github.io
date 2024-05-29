@@ -10,6 +10,8 @@
   --secondary: rgb(175, 1, 255);
 }
 
+/* ----- BASICS ----- */
+
 body {
   display: flex;
   flex-direction: column;
@@ -48,6 +50,35 @@ main {
   padding: 20px;
 }
 
+/* ----- NAVBAR ----- */
+
+.navbar {
+  width: 100%;
+  max-width: 1200px;
+  height: 60px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar .links {
+  display: flex;
+  gap: 2rem;
+}
+
+.navbar .burger-menu-button {
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+.navbar .action-boutton {
+  display: block;
+}
+
+/* ----- FONTS ----- */
+
 .neon-text {
   color: #fff;
   text-shadow:
@@ -58,6 +89,8 @@ main {
     0 0 10px color-mix(in srgb, var(--primary) 20%, var(--secondary)),
     0 0 12px color-mix(in srgb, var(--primary) 0%, var(--secondary));
 }
+
+/* ----- BOUTTONS ----- */
 
 button {
   padding: 10px 15px;
@@ -158,6 +191,8 @@ button:active {
     0 0 4px -1.5px var(--backMax) inset;
 }
 
+/* ----- SECTIONS ----- */
+
 section {
   padding: 16px;
   border-radius: 15px;
@@ -195,6 +230,8 @@ section:hover {
     0 0 4px var(--primary),
     0 0 6px color-mix(in srgb, var(--secondary), transparent 40%);
 }
+
+/* ----- MENU ----- */
 
 menu {
   list-style: none;
@@ -280,4 +317,98 @@ menu li ul li a:hover {
   box-shadow: 
     0 0 4px var(--primary),
     0 0 6px color-mix(in srgb, var(--secondary), transparent 40%);
+}
+
+/* ----- BURGER-MENU ----- */
+
+.burger-menu {
+  display: none;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 2rem;
+  top: 60px;
+  width: 200px;
+  background: var(--backTop);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.burger-menu-button {
+  pointer-events: all;
+}
+
+.burger-menu.close {
+  height: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  overflow: hidden;
+  transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.burger-menu.open {
+  height: 310;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  overflow: visible;
+}
+
+.burger-menu li {
+  padding: 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.divider {
+  height: 1px;
+  background-color: #fff;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.buttons-burger-menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.burger-menu .action-boutton {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ----- RESPONSIVE ----- */
+
+@media (max-width: 990px) {
+  header {
+    background: none;
+  }
+
+  .navbar .links,
+  .navbar .action-boutton {
+    display: none;
+  }
+
+  .navbar .burger-menu-button {
+    display: block;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+}
+@media (max-width: 576px) {
+    .burger-menu {
+    left: 2rem;
+    width: unset;
+  }
 }
