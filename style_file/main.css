@@ -65,12 +65,13 @@ main {
   justify-content: space-between;
 }
 .navbar .links {
+  list-style: none;
   display: flex;
   gap: 2rem;
 }
 
 .navbar .action-boutton {
-  display: block;
+  display: flex;
 }
 
 /* ----- FONTS ----- */
@@ -411,7 +412,10 @@ menu li ul li a:hover {
     background: none;
   }
 
-  .navbar .links,
+  .navbar .links {
+    display: none;
+  }
+  
   .navbar .action-boutton {
     display: none;
   }
