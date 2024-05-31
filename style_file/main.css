@@ -70,10 +70,6 @@ main {
   gap: 2rem;
 }
 
-.navbar .action-boutton {
-  display: flex;
-}
-
 /* ----- FONTS ----- */
 
 .neon-text {
@@ -413,10 +409,6 @@ menu li ul li a:hover {
   }
 
   .navbar .links {
-    display: none;
-  }
-  
-  .navbar .action-boutton {
     display: none;
   }
 
