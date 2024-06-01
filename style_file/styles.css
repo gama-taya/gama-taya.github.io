@@ -25,6 +25,10 @@ body {
   min-height: 100vh;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 header {
   background-color: var(--backTop);
   padding: 20px;
@@ -53,6 +57,10 @@ main {
   z-index: 0;
 }
 
+b {
+  color: color-mix(in srgb, var(--front) 70%, var(--secondary));
+}
+
 /* ----- NAVBAR ----- */
 
 .navbar {
@@ -63,6 +71,9 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
+  /* Crée un stacking context (pour ne pas que les éléments passent derrière), ne pas retirer */
+  z-index: 0;
 }
 .navbar .links {
   list-style: none;
@@ -204,11 +215,55 @@ button:active {
     0 0 4px -1.5px var(--backMax) inset;
 }
 
+/* ----- HERO ----- */
+
+#hero {
+  display: flex;
+  height: max(60vh, 200px);
+  
+  padding: 50px;
+  gap: 10vw;
+  align-items: center;
+  justify-content: center;
+  
+  background: color-mix(in srgb, var(--backMax) 80%, var(--back));
+}
+#hero svg {
+
+}
+#hero-message {
+  position: relative;
+  width: 36vw;
+  font-size: 2.2rem;
+}
+@keyframes backgroundSlide {
+  from {
+    background-position-x: 0;
+  } to {
+    background-position-x: -200%;
+  }
+}
+#hero-message::before {
+  content: "";
+  position: absolute;
+  
+  bottom: -15px;
+  left: -5px;;
+  
+  width: 25px;
+  height: 3px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--primary));
+  background-size: 200%;
+  border-radius: 10px;
+  
+  animation: backgroundSlide 2s linear infinite;
+}
+
 /* ----- SECTIONS ----- */
 
 section {
   z-index: -1;
-  padding: 16px;
+  padding: 16px 20px;
   border-radius: 15px;
   margin-bottom: 20px;
   margin-top: 5px;
@@ -247,7 +302,8 @@ section:hover {
 section-neutre {
   float: left;
   text-align: left;
-  font-weight: bold;
+  
+  width: 80vw;
 }
 
 section-neutre a:link,
@@ -258,6 +314,63 @@ section-neutre a:visited {
 
 section-neutre a:hover {
   color: #581497;
+}
+
+.sectionTitle {
+  position: relative;
+  margin-bottom: 1.5rem;
+  font-size: 1.7rem;
+}
+.sectionTitle::before {
+  content: "";
+  position: absolute;
+  
+  bottom: -0.5rem;
+  left: 0rem;
+  
+  width: 1.3rem;
+  height: 3px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--primary));
+  background-size: 200%;
+  border-radius: 10px;
+  
+  animation: backgroundSlide 3s infinite;
+  animation-play-state: paused;
+  
+  transition: all 1s cubic-bezier(.6,.04,.32,.85);
+}
+section:hover .sectionTitle::before, section-neutre:hover .sectionTitle::before {
+  animation-play-state: running;
+  width: 1.8rem;
+  left: -0.3rem;
+  transition: all 0.5s cubic-bezier(0,.77,.39,.96);
+}
+.sectionTexts {
+  margin-left: 1rem;
+}
+section-neutre p, section p {
+  font-size: 1.1rem;
+  line-height: 1.6rem;
+}
+.sectionBigText {
+  font-size: 1.3rem;
+  line-height: 1.6rem;
+}
+.sectionButtonRow {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  gap: 20px;
+  padding-top: 20px;
+  padding-inline: 10px;
+  
+  border-top: solid 2px color-mix(in srgb, var(--backMax) 30%, var(--back));
+  border-radius: 2px;
+  
+  transition: border-color 0.2s;
+}
+.sectionButtonRow:hover {
+  border-color: color-mix(in srgb, var(--backMax) 50%, var(--back));
 }
 /* ----- MENU ----- */
 
