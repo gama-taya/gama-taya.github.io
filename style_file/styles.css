@@ -506,7 +506,7 @@ menu li ul li a:hover {
   opacity: 0;
 }
 .burger-menu.open {
-  max-height: 310px;
+  max-height: 350px;
   overflow: visible;
   opacity: 1;
 }
