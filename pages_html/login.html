@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../style_file/logNreg.css">
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <ul class="links" style="gap: 0.5rem">
+                <a href="register.html">
+                    <button class="neon-button">Pas encore inscrit ?</button>
+                </a>
+            </ul>
+        </div>
+    </header>
+    <log-section>
+        <div class="login-container">
+            <h2>Connexion</h2>
+            <form action="login_action.html" method="post">
+                <div class="form-group">
+                    <label for="ident">identifiant:</label>
+                    <input type="ident" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="neon-button">Se connecter</button>
+                </div>
+            </form>
+        </div>
+    </log-section>
+    <footer>
+        <p>&copy; COD3SOURCE - Armibule & gama-taya</p>
+    </footer>
+</body>
+</html>

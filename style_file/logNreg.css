@@ -1,0 +1,640 @@
+:root {
+  --backMax: #000;
+  --back: #4b4747;
+  --frontMax: #fff;
+  --front: #fff;
+  
+  --backTop: color-mix(in srgb, var(--back) 70%, var(--backMax));
+
+  --primary: rgb(1, 120, 255);
+  --secondary: rgb(175, 1, 255);
+}
+
+/* ----- BASICS ----- */
+
+body {
+  display: flex;
+  flex-direction: column;
+    
+  font-family: Arial, sans-serif;
+  color: var(--front);
+  margin: 0;
+  background-color: var(--back);
+  background-size: cover;
+  
+  min-height: 100vh;
+}
+  
+* {
+  box-sizing: border-box;
+}
+  
+header {
+  background-color: var(--backTop);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+  
+footer {
+  background-color: var(--backTop);
+  padding: 10px;
+  text-align: center;
+  clear: both;
+    
+  margin-top: auto;
+}
+  
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+    
+  /* Crée un stacking context (pour ne pas que les éléments passent derrière), ne pas retirer */
+  z-index: 0;
+}
+
+.navbar {
+  width: 100%;
+  max-width: 1200px;
+  height: 60px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 0;
+
+  /* Crée un stacking context (pour ne pas que les éléments passent derrière), ne pas retirer */
+  z-index: 0;
+}
+  
+.navbar .links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+  
+  
+.navbar .links a:link {
+  color: #fff;
+  text-decoration: none;
+}
+  
+.navbar .links a:visited {
+  color: #fff;
+  text-decoration: none;
+}
+  
+.navbar .links a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+  
+.navbar .links a:active {
+  color: #fff;
+  text-decoration: underline;
+}
+  
+/* ----- FONTS ----- */
+  
+.neon-text {
+  color: #fff;
+  text-shadow:
+    0 0 2px color-mix(in srgb, var(--primary) 100%, var(--secondary)),
+    0 0 4px color-mix(in srgb, var(--primary) 80%, var(--secondary)),
+    0 0 6px color-mix(in srgb, var(--primary) 60%, var(--secondary)),
+    0 0 8px color-mix(in srgb, var(--primary) 40%, var(--secondary)),
+    0 0 10px color-mix(in srgb, var(--primary) 20%, var(--secondary)),
+    0 0 12px color-mix(in srgb, var(--primary) 0%, var(--secondary));
+}
+  
+/* ----- BOUTTONS ----- */
+  
+button {
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: none;
+    
+  color: var(--front);
+  background-color: color-mix(in srgb, var(--back) 90%, var(--front));
+  outline: solid 1.5px color-mix(in srgb, var(--back) 80%, var(--front));
+  
+  font-size: 0.9rem;
+    
+  cursor: pointer;
+  transition: all 0.2s, scale 0.08s;
+}
+button:hover {
+  background-color: color-mix(in srgb, var(--back) 85%, var(--front));
+  outline-color: color-mix(in srgb, var(--back) 60%, var(--front));
+    
+  box-shadow: 
+    0 0 4px var(--primary),
+    0 0 6px color-mix(in srgb, var(--secondary), transparent 40%);
+}
+button:active {
+  background-color: color-mix(in srgb, var(--back) 92%, var(--front));
+  outline-color: color-mix(in srgb, var(--back) 50%, var(--front));
+    
+  scale: 0.98;
+}
+.neon-button {  
+  position: relative;
+    
+  padding: 12px 16px;
+  outline: none;
+    
+  color: var(--front);
+  background: linear-gradient(
+    135deg, 
+    color-mix(in srgb, var(--primary) 80%, var(--front)), 
+    color-mix(in srgb, var(--secondary) 80%, var(--front))
+  ) text;
+}
+.neon-button::before {
+  content: "";
+    
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  
+  padding: 12px 16px;
+  background: 
+    linear-gradient(to right,
+      color-mix(in srgb, var(--back) 80%, var(--backMax)),
+      color-mix(in srgb, var(--back) 80%, var(--backMax))
+    ) padding-box,
+    linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+  
+  border: solid 2px transparent;
+  background-origin: border-box;
+  border-radius: 10px;
+  
+  box-shadow: 
+    -1px -1px 6px -2px color-mix(in srgb, var(--primary) 100%, var(--secondary)),
+    1px 1px 6px -2px color-mix(in srgb, var(--primary) 0%, var(--secondary));
+  
+  transition: all 0.1s;
+}
+.neon-button:hover {
+  color: transparent;
+}
+.neon-button:hover::before {
+  background: 
+    linear-gradient(to right,
+    color-mix(in srgb, var(--back) 65%, var(--backMax)),
+    color-mix(in srgb, var(--back) 65%, var(--backMax))
+    ) padding-box,
+    linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+  
+  box-shadow: 
+    -1px -1px 6px -2px color-mix(in srgb, var(--primary) 100%, var(--secondary)),
+    1px 1px 6px -2px color-mix(in srgb, var(--primary) 0%, var(--secondary)),
+    0 0 4px -4px var(--backMax) inset;
+}
+.neon-button:active {
+  scale: initial;
+}
+.neon-button:active::before {
+  background: 
+    linear-gradient(to right,
+      color-mix(in srgb, var(--back) 60%, var(--backMax)),
+      color-mix(in srgb, var(--back) 60%, var(--backMax))
+    ) padding-box,
+    linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+  
+  box-shadow: 
+    -1px -1px 6px -2px color-mix(in srgb, var(--primary) 100%, var(--secondary)),
+    1px 1px 6px -2px color-mix(in srgb, var(--primary) 0%, var(--secondary)),
+    0 0 4px -1.5px var(--backMax) inset;
+}
+
+/* ----- LOG-SECTIONS ----- */
+
+log-section {
+  z-index: 1;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+
+  color: var(--front);
+  background-color: color-mix(in srgb, var(--back) 95%, var(--front));
+  border: solid 2px transparent;
+  outline: solid 2.5px color-mix(in srgb, var(--back) 90%, var(--front));
+  max-width: 400px;
+  font-size: 1rem;
+    
+  transition: all 0.2s;
+}
+log-section:hover {
+    outline: none;
+    
+    color: var(--front);
+    background: 
+      linear-gradient(135deg,
+        color-mix(in srgb, var(--back) 90%, var(--backMax)),
+        color-mix(in srgb, var(--back) 85%, var(--backMax))
+      ) padding-box,
+      linear-gradient(135deg, 
+        color-mix(in srgb, var(--primary) 80%, transparent), 
+        color-mix(in srgb, var(--secondary) 80%, transparent)
+      ) border-box;
+  
+    background-origin: border-box;
+    border-radius: 12px;
+    
+    box-shadow: 
+      0 0 4px var(--primary),
+      0 0 6px color-mix(in srgb, var(--secondary), transparent 40%);
+  }
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+h2 {
+  margin-bottom: 20px;
+}
+.form-group {
+  margin-bottom: 15px;
+  width: 100%;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--primary);
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button[type="submit"]:hover {
+    background-color: color-mix(in srgb, var(--back) 85%, var(--front));
+    outline-color: color-mix(in srgb, var(--back) 60%, var(--front));
+      
+    box-shadow: 
+      0 0 4px var(--primary),
+      0 0 6px color-mix(in srgb, var(--secondary), transparent 40%);
+  }
+  button[type="submit"]:active {
+    background-color: color-mix(in srgb, var(--back) 92%, var(--front));
+    outline-color: color-mix(in srgb, var(--back) 50%, var(--front));
+      
+    scale: 0.98;
+  }
+  .neon-button {  
+    position: relative;
+      
+    padding: 12px 16px;
+    outline: none;
+      
+    color: var(--front);
+    background: linear-gradient(
+      135deg, 
+      color-mix(in srgb, var(--primary) 80%, var(--front)), 
+      color-mix(in srgb, var(--secondary) 80%, var(--front))
+    ) text;
+  }
+  .neon-button::before {
+    content: "";
+      
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    
+    padding: 12px 16px;
+    background: 
+      linear-gradient(to right,
+        color-mix(in srgb, var(--back) 80%, var(--backMax)),
+        color-mix(in srgb, var(--back) 80%, var(--backMax))
+      ) padding-box,
+      linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+    
+    border: solid 2px transparent;
+    background-origin: border-box;
+    border-radius: 10px;
+    
+    box-shadow: 
+      -1px -1px 6px -2px color-mix(in srgb, var(--primary) 100%, var(--secondary)),
+      1px 1px 6px -2px color-mix(in srgb, var(--primary) 0%, var(--secondary));
+    
+    transition: all 0.1s;
+  }
+  .neon-button:hover {
+    color: transparent;
+  }
+  .neon-button:hover::before {
+    background: 
+      linear-gradient(to right,
+      color-mix(in srgb, var(--back) 65%, var(--backMax)),
+      color-mix(in srgb, var(--back) 65%, var(--backMax))
+      ) padding-box,
+      linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+    
+    box-shadow: 
+      -1px -1px 6px -2px color-mix(in srgb, var(--primary) 100%, var(--secondary)),
+      1px 1px 6px -2px color-mix(in srgb, var(--primary) 0%, var(--secondary)),
+      0 0 4px -4px var(--backMax) inset;
+  }
+  .neon-button:active {
+    scale: initial;
+  }
+  .neon-button:active::before {
+    background: 
+      linear-gradient(to right,
+        color-mix(in srgb, var(--back) 60%, var(--backMax)),
+        color-mix(in srgb, var(--back) 60%, var(--backMax))
+      ) padding-box,
+      linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+    
+    box-shadow: 
+      -1px -1px 6px -2px color-mix(in srgb, var(--primary) 100%, var(--secondary)),
+      1px 1px 6px -2px color-mix(in srgb, var(--primary) 0%, var(--secondary)),
+      0 0 4px -1.5px var(--backMax) inset;
+  }
+  
+  /* ----- SECTIONS ----- */
+  
+  section {
+      z-index: -1;
+      padding: 16px 20px;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      margin-top: 5px;
+    
+      color: var(--front);
+      background-color: color-mix(in srgb, var(--back) 95%, var(--front));
+      border: solid 2px transparent;
+      outline: solid 2.5px color-mix(in srgb, var(--back) 90%, var(--front));
+    
+      font-size: 1rem;
+    
+      transition: all 0.2s;
+    }
+    section:hover {
+      outline: none;
+      
+      color: var(--front);
+      background: 
+        linear-gradient(135deg,
+          color-mix(in srgb, var(--back) 90%, var(--backMax)),
+          color-mix(in srgb, var(--back) 85%, var(--backMax))
+        ) padding-box,
+        linear-gradient(135deg, 
+          color-mix(in srgb, var(--primary) 80%, transparent), 
+          color-mix(in srgb, var(--secondary) 80%, transparent)
+        ) border-box;
+    
+      background-origin: border-box;
+      border-radius: 12px;
+      
+      box-shadow: 
+        0 0 4px var(--primary),
+        0 0 6px color-mix(in srgb, var(--secondary), transparent 40%);
+    }
+  
+  /* ----- MENU ----- */
+  
+  menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  menu li {
+    position: relative;
+  }
+  menu li a {
+    display: block;
+    padding: 10px 16px;
+    text-decoration: none;
+    color: var(--front);
+  }
+  menu li ul {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background: 
+      linear-gradient(to right,
+        color-mix(in srgb, var(--back) 70%, var(--backMax)),
+        color-mix(in srgb, var(--back) 65%, var(--backMax))
+      ) padding-box,
+      linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+    
+    border: solid 2px transparent;
+    background-origin: border-box;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+    
+  menu li:hover ul {
+    display: block;
+    margin: 0;
+    padding: 0;
+    color: transparent;
+      
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+      
+    color: var(--front);
+    background-color: color-mix(in srgb, var(--back) 90%, var(--front));
+    outline: solid 1.5px color-mix(in srgb, var(--back) 80%, var(--front));
+     
+    font-size: 0.9rem;
+    
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  menu li ul li {
+    margin-bottom: 5px;
+    list-style: none;
+  }
+  menu li ul li a {
+    color: var(--front);
+    border: solid 2px transparent;
+    border-radius: 6px;
+  }
+    
+  menu li ul li a:hover {
+    outline: none;
+      
+    color: var(--front);
+    background: 
+      linear-gradient(to right,
+        color-mix(in srgb, var(--back) 70%, var(--backMax)),
+        color-mix(in srgb, var(--back) 65%, var(--backMax))
+      ) padding-box,
+      linear-gradient(135deg, var(--primary), var(--secondary)) border-box;
+  
+    background-origin: border-box;
+     
+    box-shadow: 
+      0 0 4px var(--primary),
+      0 0 6px color-mix(in srgb, var(--secondary), transparent 40%);
+  }
+    
+  /* ----- BURGER-MENU ----- */
+    
+  .burger-menu {
+    overflow: hidden;
+      
+    position: absolute;
+    right: 2rem;
+    top: 60px;
+      
+    width: 200px;
+    max-height: 100px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+      
+    background: color-mix(in srgb, var(--backTop) 75%, transparent);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    outline: solid 1.5px color-mix(in srgb, var(--front) 10%, var(--back));
+    opacity: 0;
+    z-index: 10;
+    
+    transition: max-height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.2s;
+  }
+  #burger-menu-button {
+    display: none;
+     
+    font-size: 1.5rem;
+    height: 80%;
+    
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  #burger-menu-button:hover {
+      opacity: 0.6;
+      scale: 0.98;
+  }
+  #burger-menu-button:active {
+      opacity: 0.5;
+      scale: 0.96;
+  }
+  #burger-menu-button path {
+      transition: all 0.5s cubic-bezier( 0.175, 0.585, 0.32, 1.175 );
+  }
+  #burger-menu-button.opened #burger-bar2 {
+    opacity: 0;
+}
+.burger-menu.close {
+    opacity: 0;
+}
+.burger-menu.open {
+    max-height: 350px;
+    overflow: visible;
+    opacity: 1;
+}
+
+.burger-menu .links {
+    padding: 0;
+}
+
+.burger-menu .links a:link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.burger-menu .links a:visited {
+    color: #fff;
+    text-decoration: none;
+}
+
+.burger-menu .links a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.burger-menu .links a:active {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.burger-menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.divider {
+    height: 1px;
+    background-color: color-mix(in srgb, var(--front), var(--back));
+    width: 70%;
+    margin-inline: auto;
+    margin-block: 1rem;
+}
+
+.buttons-burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.burger-menu .action-boutton {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ----- RESPONSIVE ----- */
+
+@media (min-width: 990px) {
+    .burger-menu {
+        display: none;
+    }
+}
+
+@media (max-width: 990px) {
+    header {
+        background: none;
+    }
+
+    .navbar .links {
+        display: none;
+    }
+
+    #burger-menu-button {
+        display: block;
+    }
+
+    .burger-menu {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .burger-menu {
+        left: 2rem;
+        width: unset;
+    }
+}
