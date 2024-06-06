@@ -71,6 +71,7 @@ b {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  user-select: none;
   
   /* Crée un stacking context (pour ne pas que les éléments passent derrière), ne pas retirer */
   z-index: 0;
@@ -220,6 +221,7 @@ button:active {
 #hero {
   display: flex;
   height: max(60vh, 200px);
+  user-select: none;
   
   padding: 50px;
   gap: 10vw;
@@ -227,9 +229,6 @@ button:active {
   justify-content: center;
   
   background: color-mix(in srgb, var(--backMax) 80%, var(--back));
-}
-#hero svg {
-
 }
 #hero-message {
   position: relative;
