@@ -3,12 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>COD3SOURCE - Login</title>
+    <link rel="stylesheet" href="../style_file/styles.css">
     <link rel="stylesheet" href="../style_file/logNreg.css">
 </head>
 <body>
     <header>
         <div class="navbar">
+            <div class="neon-text">
+                <h1>COD3SOURCE</h1>
+            </div>
+            <ul class="links">
+                <li><a href="#">Partage</a></li>
+                <li><a href="#">Astuces</a></li>
+                <li><a href="#">À propos</a></li>
+            </ul>
             <ul class="links" style="gap: 0.5rem">
                 <a href="register.html">
                     <button class="neon-button">Pas encore inscrit ?</button>
@@ -23,7 +32,11 @@
         </div>
         <div class="burger-menu">
             <ul class="links">
-                <div>
+                <li><a href="#">Partage</a></li>
+                <li><a href="#">Astuces</a></li>
+                <li><a href="#">À propos</a></li>
+                <div class="divider"></div>
+                <div class="buttons-burger-menu">
                     <a href="register.html">
                         <button class="neon-button">Pas encore inscrit ?</button>
                     </a>
@@ -36,21 +49,24 @@
             <h2>Connexion</h2>
             <form action="login_action.html" method="post">
                 <div class="form-group">
-                    <label for="ident">identifiant:</label>
+                    <label for="ident">Identifiant</label>
                     <input type="ident" id="email" name="email" required>
                 </div>
                 <div class="form-group">
-                    <label for="password">Mot de passe:</label>
+                    <label for="password">Mot de passe</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                <div class="form-group">
-                    <button type="submit" class="neon-button">Se connecter</button>
-                </div>
+
+                <svg height="0" width="0"></svg>
+                
+                <button type="submit" class="neon-button">Se connecter</button>
             </form>
         </div>
     </log-section>
     <footer>
         <p>&copy; COD3SOURCE - Armibule & gama-taya</p>
     </footer>
+
+    <script src="js/base.js"></script>
 </body>
 </html>

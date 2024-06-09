@@ -220,7 +220,7 @@ button:active {
 
 #hero {
   display: flex;
-  height: max(60vh, 200px);
+  max-height: max(60vh, 200px);
   user-select: none;
   
   padding: 50px;
@@ -299,10 +299,23 @@ section:hover {
 }
 
 section-neutre {
+  display: flex;
+  flex-direction: column;
   float: left;
   text-align: left;
   
-  width: 80vw;
+  width: 90vw;
+  padding: 30px;
+  margin-block: 10vh;
+  gap: 10px;
+  
+  border-radius: 10px;
+  outline: solid 1.5px color-mix(in srgb, var(--front) 40%, var(--back));
+  
+  transition: outline 0.2s;
+}
+section-neutre:hover {
+  outline: solid 1.5px color-mix(in srgb, var(--front) 50%, var(--back));
 }
 
 section-neutre a:link,
@@ -317,17 +330,18 @@ section-neutre a:hover {
 
 .sectionTitle {
   position: relative;
-  margin-bottom: 1.5rem;
+  margin: 0;
   font-size: 1.7rem;
+  width: max-content;
 }
 .sectionTitle::before {
   content: "";
   position: absolute;
   
   bottom: -0.5rem;
-  left: 0rem;
+  left: 0;
   
-  width: 1.3rem;
+  width: 20%;
   height: 3px;
   background: linear-gradient(135deg, var(--primary), var(--secondary), var(--primary));
   background-size: 200%;
@@ -340,8 +354,7 @@ section-neutre a:hover {
 }
 section:hover .sectionTitle::before, section-neutre:hover .sectionTitle::before {
   animation-play-state: running;
-  width: 1.8rem;
-  left: -0.3rem;
+  width: 30%;
   transition: all 0.5s cubic-bezier(0,.77,.39,.96);
 }
 .sectionTexts {
@@ -349,11 +362,11 @@ section:hover .sectionTitle::before, section-neutre:hover .sectionTitle::before 
 }
 section-neutre p, section p {
   font-size: 1.1rem;
-  line-height: 1.6rem;
+  line-height: 1.8rem;
 }
 .sectionBigText {
-  font-size: 1.3rem;
-  line-height: 1.6rem;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
 }
 .sectionButtonRow {
   display: flex;
@@ -588,8 +601,18 @@ menu li ul li a:hover {
     display: block;
   }
 }
+@media (max-width: 700px) {
+  #hero {
+    flex-direction: column-reverse;
+    max-height: max-content;
+    gap: 10px;
+  }
+  #hero-message {
+    width: 100%;
+  }
+}
 @media (max-width: 576px) {
-    .burger-menu {
+   .burger-menu {
     left: 2rem;
     width: unset;
   }
